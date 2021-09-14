@@ -1,0 +1,7 @@
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}

@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  flexio-frontend:
+    container_name: flexio-frontend
+    build: frontend
+    ports:
+      - '4200:4200'
+  flexio-backend:
+    container_name: flexio-backend
+    build: backend
+    command: sh ./run.sh
+    volumes:
+      - ./backend/src:/app
+    ports:
+      - "6502:6502"

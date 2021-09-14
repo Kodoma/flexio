@@ -1,0 +1,86 @@
+<div class="course">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    fixedLayout
+    class="mat-elevation-z8"
+  >
+    <caption class="caption">Labour cost report</caption>
+    <!-- PAYROLL PROVIDER Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{(isMobile) ? 'Provider' : 'PAYROLL PROVIDER'}}
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- WORKER Column -->
+    <ng-container matColumnDef="workerCount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{(isMobile) ? 'Worker' : 'WORKER'}}
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.workerCount}} </td>
+    </ng-container>
+
+    <!-- COMPLIANCE SCORE Column -->
+    <ng-container matColumnDef="Total">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        {{(isMobile) ? 'Score' : 'COMPLIANCE SCORE'}}
+      </th>
+
+      <td
+        mat-cell
+        *matCellDef="let element"
+      >
+        <ng-template [ngIf]="element?.complianceStats?.Total" [ngIfElse]="zero">
+          {{
+            element.complianceStats.Total | number:'1.0-0'
+          }} %
+        </ng-template>
+        <ng-template #zero>
+          {{ 0 }} %
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <!-- GROSS PAY Column -->
+    <ng-container matColumnDef="grossPayTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{(isMobile) ? 'Gross' : 'GROSS PAY (&#163;)'}}
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.grossPayTotal}} </td>
+    </ng-container>
+
+    <!-- PAYROLL ADMIN Column -->
+    <ng-container matColumnDef="payrollAdminTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{(isMobile) ? 'Admin' : 'PAYROLL ADMIN (&#163;)'}}
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.payrollAdminTotal}} </td>
+    </ng-container>
+
+    <!-- LABOUR COST Column -->
+    <ng-container matColumnDef="labourCostTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{(isMobile) ? 'Labour' : 'LABOUR COST (&#163;)'}}
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.labourCostTotal}} </td>
+    </ng-container>
+
+    <!-- WORK FORCE Column -->
+    <ng-container matColumnDef="rebatesTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{(isMobile) ? 'Force' : 'WORK FORCE'}}
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.rebatesTotal}} %</td>
+    </ng-container>
+
+    <tr class="mat-title" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr class="mat-body" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

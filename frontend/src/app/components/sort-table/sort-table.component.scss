@@ -1,0 +1,74 @@
+table {
+  width: 90%;
+  margin: auto;
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
+}
+
+th.mat-header-cell {
+  text-align: center !important;
+  color: #B9BCBE;
+  border-bottom: none;
+  @media screen and (max-width: 812px) {
+    font-size: 7px;
+    word-break: break-word;
+    color: #606366;
+    width: 10%;
+  }
+  @media screen and (orientation: landscape) {
+    font-size: 14px;
+    color: #606366;
+  }
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.caption {
+  color: #606366;
+  text-align: left;
+  font-size: 28px;
+  margin: 20px 0 20px 0px;
+}
+
+mat-header-cell {
+  display:flex;
+  justify-content:flex-end;
+}
+
+::ng-deep .mat-sort-header-container {
+  display:flex;
+  justify-content:center;
+}
+
+::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow {
+  opacity: 0.54 !important;
+  transform: translateY(0px) !important;
+
+}
+
+td.mat-cell {
+  color: #606366;
+  border: none;
+  text-align: center;
+  @media screen and (max-width: 812px) {
+    font-size: 8px;
+  }
+  @media screen and (orientation: landscape) {
+    font-size: 12px;
+  }
+}
+
+td.mat-column-grossPayTotal {
+  color: #000 !important;
+  border: none;
+}
+
+td.mat-column-Total {
+  border-right: solid 1px #E3E7E9;
+  height: 10px;
+}
+
