@@ -72,6 +72,35 @@ export class SortTableComponent implements OnInit {
       })
 
   }
+
+  /** Gets the total cost of all transactions. */
+  getTotalCost(element: string) {
+    let sum: number = 0
+    this.dataSource.data.map(t => {
+      sum += t[element]
+    })
+    return sum;
+  }
+
+  getTotalComplianceScore() {
+    let sum: number = 0
+    this.dataSource.data.map(t => {
+      sum += (t.complianceStats) ? t.complianceStats.Total : 0
+    })
+    return sum;
+  }
+
+  getWorkForcePercentage(workerCount: number, workerTotal: number) {
+    return (workerCount * 100) / workerTotal
+  }
+
+  getTotalWorkForcePercentage(TotalWorkers: number) {
+    let sumPercentage: number = 0
+    this.dataSource.data.map(t => {
+      sumPercentage += (t.workerCount * 100)/ TotalWorkers
+    })
+    return sumPercentage;
+  }
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {
